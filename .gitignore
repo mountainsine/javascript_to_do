@@ -1,3 +1,12 @@
+#Mac System File
+.DS_Store
+
+# working local playground directories
+/test/*
+/Test/*
+/Playground/*
+/playground/*
+
 # Prerequisites
 *.d
 

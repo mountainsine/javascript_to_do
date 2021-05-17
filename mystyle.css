@@ -12,8 +12,7 @@ ul li {
   padding: 12px 8px 12px 40px;
   background: #eee;
   font-size: 18px;
-  transition: 0.2s;
-      font-family: Helvetica, Geneva, Arial, sans-serif;
+  transition: 0.2s;font-family: Helvetica, Geneva, Arial, sans-serif;
 
   /* make the list items unselectable */
   -webkit-user-select: none;
@@ -112,5 +111,3 @@ input {
 .addBtn:hover {
   background-color: #bbb;
 }
-
-  

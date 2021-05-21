@@ -1,3 +1,6 @@
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
 
 /* Remove margins and padding from the list */
 ul {
@@ -111,3 +114,29 @@ input {
 .addBtn:hover {
   background-color: #bbb;
 }
+
+/* STYLES the general SUB NAV With the PROJECT selector*/
+.myProjectSelector {
+  font-family: Arial;
+  cursor: pointer;
+  box-sizing: border-box;
+  padding: 10px;
+  width: 100%;
+  background: #c5e2c4;
+  color: rgb(0, 0, 0);
+  
+}
+
+.projectSelectorCopy{
+  float: left;
+  padding: 10px;
+  text-align: center;
+}
+
+.defaultListState{
+  float: center;
+  padding: 50px;
+  text-align: center;
+  font-size: 30px;
+}
+

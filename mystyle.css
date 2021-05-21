@@ -117,7 +117,6 @@ input {
 
 /* STYLES the general SUB NAV With the PROJECT selector*/
 .myProjectSelector {
-  font-family: Arial;
   cursor: pointer;
   box-sizing: border-box;
   padding: 10px;
@@ -140,3 +139,10 @@ input {
   font-size: 30px;
 }
 
+.hidden{
+  display:none;
+}
+
+.userProfileZone{
+  text-align: right;
+}

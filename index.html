@@ -1,18 +1,9 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN">
 <html>
 <head>
-  <link rel="stylesheet" href="mystyle.css">
-</head>
-
-<body>
-
-  <div id="myDIV" class="header">
-    <h2>My To Do List</h2>
-    <input type="text" id="myInput" placeholder="What do you need to do?">
-    <span onclick="newElement()" class="addBtn">Add</span>
-  </div>
+  <title>Vanilla Javascript To Do</title>
   
-  
+  <div id="theuserProfileZone" class="userProfileZone"></div>
   <div class="projectSelectorCopy">Click Here to Select project</div>
   <!-- You cannot have spaces in html property-->
     <div selectProjectSelector class="myProjectSelector">
@@ -27,15 +18,29 @@
     </div>
   </div>
 
-  
+  <!-- All Styles in this css file-->
+  <link rel="stylesheet" href="mystyle.css">
+  </div>
+</head>
+
+<body>
+  <div id="myDIV" class="header">
+    <h2>My To Do List</h2>
+    <input type="text" id="myInput" placeholder="What do you need to do?">
+    <span onclick="newElement()" class="addBtn">Add</span>
+  </div>
   
   <ul id="myUL">
     <!-- IDS in HTML need to be in quote strings maybe-->
-    <div id="nothingMessage" class=defaultListState>You have nothing to do! Celebration!</div>
-  </ul> 
+    <div id="nothingMessage" class="defaultListState">Weekend Almost here!</div>
+  </ul>
+
+  <!-- <div id="BODYCOPY" class="BODYCOPYCLASS">ALWAYS DISPLAY</div> -->
 
   </body>
+
+  <script src="main.js"></script>
 </html>
 
+
 <!-- Normally the right way to things is wrap it in a header executable. not having this in footer caused some errors -->
-<script src="main.js"></script>

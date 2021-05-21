@@ -1,6 +1,7 @@
-
+// This is just a test utility
 let aTestMessage = 'Hello World';
 console.log(aTestMessage);
+
 
 
 // Create a "close" button and append it to each list item
@@ -14,7 +15,6 @@ console.log(aTestMessage);
     myNodelist[i].appendChild(span);
   }
 
-
   // Click on a close button to hide the current list item
   var close = document.getElementsByClassName("close");
   var i;
@@ -24,7 +24,7 @@ console.log(aTestMessage);
       div.style.display = "none";
     }
   }
-  
+  showOrHidePlaceholdMessage();
   // Add a "checked" symbol when clicking on a list item
   var list = document.querySelector('#myUL');
   list.addEventListener('click', function(ev) {
@@ -32,6 +32,7 @@ console.log(aTestMessage);
       ev.target.classList.toggle('checked');
     }
   }, false);
+  
   
   // Create a new list item when clicking on the "Add" button
   function newElement() {
@@ -45,7 +46,7 @@ console.log(aTestMessage);
       document.getElementById("myUL").appendChild(li);
     }
     document.getElementById("myInput").value = "";
-  
+
     var span = document.createElement("SPAN");
     var txt = document.createTextNode("\u00D7");
     span.className = "close";
@@ -57,53 +58,28 @@ console.log(aTestMessage);
         var div = this.parentElement;
         div.style.display = "none";
       }
-
-      doSomething;///console.log(li);
     }
+    showOrHidePlaceholdMessage();
   } 
 
-  
-let doIHaveanyTasks;
-// locate the text message
-var validateTaskList = document.getElementById("nothingMessage");
-///console.log(validateTaskList.textContent);
-// Check for existence of the list exists
-if (validateTaskList) {
-  //console.log(validateTaskList)
-} else {
-  console.log('The variable does not exist.')
-}
+ 
 
-// //// Another attempt
-// var anythingIneedToDo = document.getElementsByClassName("close")
-// console.log(anythingIneedToDo);
-// if (anythingIneedToDo => 0){
-//   console.log('this is gonna hide my element later') } else {
-//   console.log('nothing')
-//   };
-
-  // ^ works but does not work outside page load so it needs to be in a function
-
-//// another attempt in function
-
-function doSomething(){
+function showOrHidePlaceholdMessage(){
   var anythingIneedToDo = document.getElementsByClassName("close")
-  //console.log(anythingIneedToDo);
-  if (anythingIneedToDo => 0){
-  console.log('this is gonna hide my element later') } else {
-  console.log('nothing')
-  };
-
+  var i;
+  if(myNodelist.length > 0){
+    document.getElementById("nothingMessage").classList.add("hidden");
+  } else {
+    document.getElementById("nothingMessage").classList.remove("hidden");
+  }
 }
 
+function isUserLoggedIn(){
+  let isUserLoggedIn = "TEST";
+  if (theuserProfileZone.length > 0){
+    dynamicUserProfile.setAttribute("src", "A STRING");
+  } else {
+    dynamicUserProfile.setAttribute("src", "WELCOME")
+  }
+}
 
-
-
-// // Toggle visibilty based on if 
-// var li = document.createElement("li");
-// var inputValue = document.getElementById("myInput").value;
-// var t = document.createTextNode(inputValue);
-// li.appendChild(t);
-// if (inputValue === '') {
-//   alert("You must write something!");
-// } else {

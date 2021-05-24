@@ -37,8 +37,11 @@ console.log(aTestMessage);
   // Create a new list item when clicking on the "Add" button
   function newElement() {
     var li = document.createElement("li");
+    /// VERY IMPORTANT THIS IS THE InputValueVariable
     var inputValue = document.getElementById("myInput").value;
-    var t = document.createTextNode(inputValue);
+    //var t = document.createTextNode(inputValue);//OLD ONE
+    var t = document.createTextNode(localStorage.getItem("toDo"));
+    console.log("text node = " + inputValue);
     li.appendChild(t);
     if (inputValue === '') {
       alert("You must write something!");
@@ -46,13 +49,12 @@ console.log(aTestMessage);
       document.getElementById("myUL").appendChild(li);
     }
     document.getElementById("myInput").value = "";
-
     var span = document.createElement("SPAN");
     var txt = document.createTextNode("\u00D7");
+    localStorage.setItem('toDo', JSON.stringify(inputValue));
     span.className = "close";
     span.appendChild(txt);
     li.appendChild(span);
-  
     for (i = 0; i < close.length; i++) {
       close[i].onclick = function() {
         var div = this.parentElement;
@@ -81,5 +83,6 @@ function isUserLoggedIn(){
   } else {
     dynamicUserProfile.setAttribute("src", "WELCOME")
   }
+
 }
 

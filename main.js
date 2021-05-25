@@ -1,3 +1,25 @@
+
+
+var toDos = [];
+/// TO DO 20210525 Ready From array from Local Storage  
+var retrievedData = localStorage.getItem("testKey");
+//console.log(retrievedData);/// TEST LOG IGNORE
+/// TO DO 20210525 Deserialize string
+var toDos2 = JSON.parse(retrievedData);
+console.log(retrievedData);/// TEST LOG IGNORE
+/// TO DO 20210525 Create a function or way to loop through the tDos and call to dom ^
+
+
+function loopMachineWacky(){
+  let thingsIHAVETODO = JSON.parse(localStorage.getItem('task'));
+  console.log(thingsIHAVETODO);
+  var loopMachineWacky = [];
+}
+document.getElementById("myNewDIV").innerHTML = "Bonjour";
+
+ 
+/// A function or way to loop through to dos and call to dom ^ 
+
 // Create a "close" button and append it to each list item
   var myNodelist = document.getElementsByTagName("LI");
   var i;
@@ -39,11 +61,13 @@
     } else {
       document.getElementById("myUL").appendChild(li);
       let myObj = {
-        task: ("test"),
+        task: document.getElementById("myInput").value,
         prioritylevel: 999
       }
-      let myObjSerialized = JSON.myObjSerialized;
-      localStorage.setItem("testKey", JSON.stringify(myObj));
+      toDos.push(myObj);
+      //let myObjSerialized = JSON.myObjSerialized;
+//     localStorage.setItem("testKey", JSON.stringify(myObj));// OLD local storage set for reference
+    localStorage.setItem("testKey", JSON.stringify(toDos));
     }
     document.getElementById("myInput").value = "";
 
@@ -62,7 +86,12 @@
     showOrHidePlaceholdMessage();
   } 
 
- 
+
+function addListItemToDom(item){
+  
+} 
+
+
 
 function showOrHidePlaceholdMessage(){
   var anythingIneedToDo = document.getElementsByClassName("close")
@@ -71,15 +100,6 @@ function showOrHidePlaceholdMessage(){
     document.getElementById("nothingMessage").classList.add("hidden");
   } else {
     document.getElementById("nothingMessage").classList.remove("hidden");
-  }
-}
-
-function isUserLoggedIn(){
-  let isUserLoggedIn = "TEST";
-  if (theuserProfileZone.length > 0){
-    dynamicUserProfile.setAttribute("src", "A STRING");
-  } else {
-    dynamicUserProfile.setAttribute("src", "WELCOME")
   }
 }
 

@@ -2,28 +2,22 @@ var toDos = [];
 var retrievedData = [];
 
 var retrievedData = localStorage.getItem("testKey");
-  console.log(retrievedData);
+  //console.log(retrievedData);
   // handle load event
 
 window.onload = loopMachineWacky(retrievedData)
-  if (retrievedData === '') {
-    //console.log('YAM',"");
+  if (retrievedData){
+    console.log(retrievedData);
     document.getElementById("nothingMessageID").classList.add("hidden");
     var span = document.createElement("SPAN");
     var txt = document.createTextNode("\u00D7");
 
   } else {
-    //console.log(retrievedData["task"]);
+    console.log("NO LOCAL STORAGE FOUND!");
     document.getElementById("nothingMessageID").classList.remove("hidden");
     var li = document.createElement("li");
     var toDoValue = document.getElementById("retrievedData");
   };
-
-
-
-
-
-
 
 
 /// TO DO 20210525 Create a function or way to loop through the tDos and call to dom ^
@@ -167,6 +161,8 @@ function newElement() {
 
       }
     }
+
+    
   }
 
 

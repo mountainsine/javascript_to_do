@@ -1,74 +1,51 @@
 var toDos = [];
 var retrievedData = [];
 
+// RETRIEVES LOCAL STORAGE ITEMS
 var retrievedData = localStorage.getItem("testKey");
-  //console.log(retrievedData);
-  // handle load event
 
-window.onload = loopMachineWacky(retrievedData)
+window.onload = function() {
   if (retrievedData){
-    console.log(retrievedData);
-    document.getElementById("nothingMessageID").classList.add("hidden");
-    var span = document.createElement("SPAN");
-    var txt = document.createTextNode("\u00D7");
-
+    loopMachineWacky();
+    //console.log(retrievedData);
+    //console.log("LOCALSTORAGEDETECTED!")
   } else {
     console.log("NO LOCAL STORAGE FOUND!");
-    document.getElementById("nothingMessageID").classList.remove("hidden");
-    var li = document.createElement("li");
-    var toDoValue = document.getElementById("retrievedData");
   };
+};
 
-
-/// TO DO 20210525 Create a function or way to loop through the tDos and call to dom ^
-
-/// The loop Machine Wacky attempts to do the above
-function loopMachineWacky(){
-  if (retrievedData === '') {
-    //console.log('YAM');
-    document.getElementById("nothingMessageID").classList.add("hidden");
-    var span = document.createElement("SPAN");
-    var txt = document.createTextNode("\u00D7");
-
+//// TO DO 20210525 Create a function or way to loop through the tDos and call to dom 
+function loopMachineWacky() {
+  if (retrievedData){
+    console.log("INITIATE WACKINESS!")
+    renderLocalStorage();
+    //console.log(retrievedData);
+    ///document.getElementById("nothingMessageID").classList.remove;
   } else {
-    // console.log('potato');
-    document.getElementById("nothingMessageID").classList.remove("hidden");
+    console.log("NO LOCAL STORAGE FOUND!");
   };
 }
-loopMachineWacky();
-
-
 
 function renderLocalStorage(){
-    var li = document.createElement("li");
-    var toDoValue = document.getElementById("retrievedData").value;
-    var t = document.createTextNode.
-    li.appendChild(t);
-    if (retrievedData === '') {
-      // console.log('YAM');
-    } else {
-      document.getElementById("myUL").appendChild(li);
-      let myObj = {
-        task: document.getElementById("myInput").value,
-        prioritylevel: 999
-      }
-      toDos.push(myObj);
-    localStorage.setItem("testKey", JSON.stringify(toDos));
-    }
-    document.getElementById("myInput").value = "";
-
+  var i;
+  for (i = 0; i < myNodelist.length; i++) 
+  var array = JSON.parse(retrievedData);
+  console.log("RENDERING LOCAL STORAGE!"); //
+  console.log(array); //
+  var li = document.createElement("li"); // good
+  var inputValue = document.getElementById("myInput").value;
+  var myNodelist = document.getElementsByTagName("LI");
+  var i;
+  for (i = 0; i < myNodelist.length; i++) {
     var span = document.createElement("SPAN");
     var txt = document.createTextNode("\u00D7");
     span.className = "close";
     span.appendChild(txt);
-    li.appendChild(span);
-  
-    for (i = 0; i < close.length; i++) {
-      close[i].onclick = function() {
-        var div = this.parentElement;
-
-      }
-    };
+    myNodelist[i].appendChild(span);
+    var li = document.createElement("li");
+    document.getElementById("myUL").appendChild(li);
+      let myObj = array.JSON.parse(retrievedData);
+  }
 
 }
 

@@ -1,14 +1,15 @@
 var toDos = [];
-var retrievedData = [];
+var retrievedDataArray = [];
 
 // RETRIEVES LOCAL STORAGE ITEMS
-var retrievedData = localStorage.getItem("testKey");
+var retrievedDataArray = JSON.parse(localStorage.getItem("testKey"));
 
 window.onload = function() {
-  if (retrievedData){
+  if (retrievedDataArray){
+    console.log(retrievedDataArray[0]);
+    console.log(retrievedDataArray[1]);
     loopMachineWacky();
-    //console.log(retrievedData);
-    //console.log("LOCALSTORAGEDETECTED!")
+    console.log("LOCALSTORAGEDETECTED!")
   } else {
     console.log("NO LOCAL STORAGE FOUND!");
   };
@@ -16,9 +17,9 @@ window.onload = function() {
 
 //// TO DO 20210525 Create a function or way to loop through the tDos and call to dom 
 function loopMachineWacky() {
-  if (retrievedData){
+  if (retrievedDataArray){
     console.log("INITIATE WACKINESS!")
-    renderLocalStorage();
+    renderLocalStorage(retrievedDataArray);
     //console.log(retrievedData);
     ///document.getElementById("nothingMessageID").classList.remove;
   } else {
@@ -28,13 +29,15 @@ function loopMachineWacky() {
 
 function renderLocalStorage(){
   var i;
+  var myNodelist = document.getElementsByTagName("LI");
   for (i = 0; i < myNodelist.length; i++) 
-  var array = JSON.parse(retrievedData);
+  var array = JSON.parse(retrievedDataArray);
+  console.log("THIS IS THE PARSTED RETRIEVED DATA ARRAY" , retrievedDataArray)
   console.log("RENDERING LOCAL STORAGE!"); //
   console.log(array); //
   var li = document.createElement("li"); // good
   var inputValue = document.getElementById("myInput").value;
-  var myNodelist = document.getElementsByTagName("LI");
+
   var i;
   for (i = 0; i < myNodelist.length; i++) {
     var span = document.createElement("SPAN");
@@ -44,7 +47,7 @@ function renderLocalStorage(){
     myNodelist[i].appendChild(span);
     var li = document.createElement("li");
     document.getElementById("myUL").appendChild(li);
-      let myObj = array.JSON.parse(retrievedData);
+      let myObj = array.JSON.parse(retrievedDataArray);
   }
 
 }

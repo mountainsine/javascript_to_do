@@ -7,7 +7,6 @@ var retrievedDataArray = JSON.parse(localStorage.getItem("testKey"));
 window.onload = function() {
   if (retrievedDataArray){
     console.log(retrievedDataArray[0]);
-    console.log(retrievedDataArray[1]);
     loopMachineWacky();
     console.log("LOCALSTORAGEDETECTED!")
   } else {

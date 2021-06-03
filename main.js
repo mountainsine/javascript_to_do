@@ -1,44 +1,51 @@
 var toDos = [];
 var retrievedDataArray = [];
-var potatoes = 1;
+var temporaryVariablePotato = 1;
 var tag_id = document.getElementById('nothingMessage');
-var onScreenLocalStorage = document.getElementById('myRenderDiv2');
-var onScreenLocalStorage = document.getElementById('myRenderDiv3');
+// var onScreenLocalStorage = document.getElementById('myRenderDiv2');
+// var onScreenLocalStorage2 = document.getElementById('myRenderDiv3');
+var myObj = [];
 
 // RETRIEVES LOCAL STORAGE ITEMS
 var retrievedDataArray = JSON.parse(localStorage.getItem("testKey"));
 
-window.onload = function() {
+function validateToDoFunction(){
   if (retrievedDataArray && retrievedDataArray.length > 0){
     console.log("LOCALSTORAGEDETECTED!")
     console.log('Stored Item Length = ' + retrievedDataArray.length);
+    tag_id.innerHTML = '';
     loopMachineWacky();
   } else {
     tag_id.innerHTML = '&#x2705 You have no Tasks!';
     console.log("NO LOCAL STORAGE FOUND!");
   };
+}
+
+window.onload = function() {
+  validateToDoFunction();
 };
 
-function aNEWDoYouHaveAnyTasks(Potatoes) {
-  if (potatoes) {
-    myRenderDiv3.innerHTML = 'This is a literal string but generated from JS into the innerHTML via tag ID';
-  } else {
-      console.log('no potatoes');
-  }
-};
+// function aNEWDoYouHaveAnyTasks(temporaryVariablePotato) {
+//   if (temporaryVariablePotato) {
+//     myRenderDiv3.innerHTML = 'This is a literal string but generated from JS into the innerHTML via tag ID';
+//   } else {
+//       console.log('no temporaryVariablePotato');
+//   }
+// };
 
 //// TO DO 20210525 Create a function or way to loop through the tDos and call to dom 
 function loopMachineWacky() {
   if (retrievedDataArray && retrievedDataArray.length > 0){
     console.log("INITIATE WACKINESS!")
     renderLocalStorage(retrievedDataArray);
-    //console.log(retrievedData);
-    localStorage.getItem("testKey", JSON.stringify(toDos));
-    //onScreenLocalStorage.innerHTML = JSON.stringify(localStorage, null, '\t');
-    onScreenLocalStorage.innerHTML = JSON.parse(localStorage, null, '\t');
+    tag_id.innerHTML = '&#x2705 You have no Tasks!';
+
+    //localStorage.getItem("testKey", JSON.stringify(toDos));
+    //onScreenLocalStorage.innerHTML = JSON.stringify(localStorage, myObj, '\t');
 
   } else {
-    console.log('loopMachineWacky FAILURE!')
+    console.log('loopMachineWacky FAILURE!');
+    tag_id.innerHTML = '';
 
   };
 }
@@ -52,11 +59,11 @@ function renderLocalStorage(){
 
   var myNodelist = document.getElementsByTagName("LI");
   for (i = 0; i < myNodelist.length; i++) 
-  var array = JSON.parse(retrievedDataArray);
+  // var array = JSON.parse(retrievedDataArray);
   console.log("PARSED RETRIEVED DATA ARRAY = " , retrievedDataArray)
   console.log("RENDERING LOCAL STORAGE!"); //
   var li = document.createElement("li"); // good
-  var inputValue = document.getElementById("myInput").value;
+
 
   // var i;
   // for (i = 0; i < myNodelist.length; i++) {
@@ -90,6 +97,7 @@ function newElement() {
         prioritylevel: 999
       }
       toDos.push(myObj);
+
     }
     
   }
@@ -119,7 +127,6 @@ function newElement() {
       div.style.display = "none";
     }
   }
-  // showOrHidePlaceholdMessage();
 
   // Add a "checked" symbol when clicking on a list item
   var list = document.querySelector('#myUL');
@@ -162,14 +169,14 @@ function newElement() {
         window.onload
 
       }
+
+      
     }
 
-    
+    validateToDoFunction();  
 
     
   }
-
-  aNEWDoYouHaveAnyTasks(potatoes);
 
 
 

@@ -2,9 +2,10 @@ var toDos = [];
 var retrievedDataArray = [];
 var temporaryVariablePotato = 1;
 var tag_id = document.getElementById('nothingMessage');
-// var onScreenLocalStorage = document.getElementById('myRenderDiv2');
-// var onScreenLocalStorage2 = document.getElementById('myRenderDiv3');
 var myObj = [];
+var newElement = [];
+var newElement2 = [];
+var parsedArrayObject = [];
 
 // RETRIEVES LOCAL STORAGE ITEMS
 var retrievedDataArray = JSON.parse(localStorage.getItem("testKey"));
@@ -25,82 +26,83 @@ window.onload = function() {
   validateToDoFunction();
 };
 
-// function aNEWDoYouHaveAnyTasks(temporaryVariablePotato) {
-//   if (temporaryVariablePotato) {
-//     myRenderDiv3.innerHTML = 'This is a literal string but generated from JS into the innerHTML via tag ID';
-//   } else {
-//       console.log('no temporaryVariablePotato');
-//   }
-// };
-
 //// TO DO 20210525 Create a function or way to loop through the tDos and call to dom 
 function loopMachineWacky() {
   if (retrievedDataArray && retrievedDataArray.length > 0){
     console.log("INITIATE WACKINESS!")
-    renderLocalStorage(retrievedDataArray);
-    tag_id.innerHTML = '&#x2705 You have no Tasks!';
-
+    renderLocalStorage();
+   
+   // JSON.parse(retrievedDataArray) // Does not return anything
     //localStorage.getItem("testKey", JSON.stringify(toDos));
+    //console.log(toDos);
     //onScreenLocalStorage.innerHTML = JSON.stringify(localStorage, myObj, '\t');
 
   } else {
     console.log('loopMachineWacky FAILURE!');
     tag_id.innerHTML = '';
+    
 
   };
 }
 
 function renderLocalStorage(){
-  //   var i=0;
-  //   i<localStorage.length; i++) {
-  //     var key = localStorage;
-  //     var item = JSON.parse( localStorage.getItem( key ) );
-  // }
-
-  var myNodelist = document.getElementsByTagName("LI");
-  for (i = 0; i < myNodelist.length; i++) 
-  // var array = JSON.parse(retrievedDataArray);
-  console.log("PARSED RETRIEVED DATA ARRAY = " , retrievedDataArray)
-  console.log("RENDERING LOCAL STORAGE!"); //
-  var li = document.createElement("li"); // good
-
-
-  // var i;
-  // for (i = 0; i < myNodelist.length; i++) {
-  //   var span = document.createElement("SPAN");
-  //   var txt = document.createTextNode("\u00D7");
-  //   span.className = "close";
-  //   span.appendChild(txt);
-  //   myNodelist[i].appendChild(span);
-  //   var li = document.createElement("li");
-  //   document.getElementById("myUL").appendChild(li);
-  //     let myObj = array.JSON.parse(retrievedDataArray);
-  // }
-
-}
-
-
-// Create a new list item when clicking on the "Add" button
-function newElement() {
-  var li = document.createElement("li");
-  var inputValue = document.getElementById("myInput").value;
-  var t = document.createTextNode(inputValue);
-  var li = document.createElement("li");
-  var inputValue = document.getElementById("myInput").value;
-    li.appendChild(t);
-    if (inputValue === '') {
-      alert("You must write something!");
-    } else {
-      document.getElementById("myUL").appendChild(li);
-      let myObj = {
-        task: document.getElementById("myInput").value,
-        prioritylevel: 999
-      }
-      toDos.push(myObj);
-
-    }
-    
+    if (retrievedDataArray && retrievedDataArray.length > 0){
+      tag_id.innerHTML = JSON.stringify(retrievedDataArray[0]);
+      console.log(retrievedDataArray);
+      console.log(JSON.stringify(retrievedDataArray[0]));
   }
+  else {
+    tag_id.innerHTML = '';
+  }
+  ;
+  // var li = document.createElement("li");
+  // var myNodelist = document.getElementsByTagName("LI");
+  //   for (i = 0; i < myNodelist.length; i++) 
+  //   if (retrievedDataArray && retrievedDataArray.length > 0){
+      
+  //   // var array = JSON.parse(retrievedDataArray);
+  //   console.log("PARSED RETRIEVED DATA ARRAY = " , retrievedDataArray)
+  //   console.log("RENDERING LOCAL STORAGE!"); //
+  //   var t = document.createTextNode(retrievedDataArray);
+  //   var li = document.createElement("li"); // good
+  //   var localStorageValue = retrievedDataArray.value;
+  //   li.appendChild(t);
+  //   if (inputValue === '') {
+  //     alert("You must write something!");
+  //   } else {
+  //     document.getElementById("myUL").appendChild(li);
+  //     let myObj = {
+  //       task: document.getElementById("myInput").value,
+  //       prioritylevel: 999
+  //     }
+  //     toDos.push(myObj);
+
+  //     }
+    
+    }
+
+
+// // Create a new list item when clicking on the "Add" button
+// function newElement() {
+//   var li = document.createElement("li");
+//   var inputValue = document.getElementById("myInput").value;
+//   var t = document.createTextNode(inputValue);
+//   var li = document.createElement("li");
+//   var inputValue = document.getElementById("myInput").value;
+//     li.appendChild(t);
+//     if (inputValue === '') {
+//       alert("You must write something!");
+//     } else {
+//       document.getElementById("myUL").appendChild(li);
+//       let myObj = {
+//         task: document.getElementById("myInput").value,
+//         prioritylevel: 999
+//       }
+//       toDos.push(myObj);
+
+//       }
+    
+//     }
 
 
 
@@ -177,9 +179,5 @@ function newElement() {
 
     
   }
-
-
-
-
 
 

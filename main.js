@@ -1,10 +1,9 @@
 var toDos = [];
 var retrievedDataArray = [];
+
 var temporaryVariablePotato = 1;
 var tag_id = document.getElementById('nothingMessage');
 var myObj = [];
-var newElement = [];
-var newElement2 = [];
 var parsedArrayObject = [];
 
 // RETRIEVES LOCAL STORAGE ITEMS
@@ -47,63 +46,20 @@ function loopMachineWacky() {
 
 function renderLocalStorage(){
     if (retrievedDataArray && retrievedDataArray.length > 0){
-      tag_id.innerHTML = JSON.stringify(retrievedDataArray[0]);
+      var currentToDoString = JSON.stringify(retrievedDataArray[0]);
+      //tag_id.innerHTML = JSON.stringify(retrievedDataArray[0]);
+      //tag_id.innerHTML = JSON.localStorageValue.task(retrievedDataArray[0]);
+      
       console.log(retrievedDataArray);
       console.log(JSON.stringify(retrievedDataArray[0]));
+      let arr = ['this is the first element', 'this is the second element', 'this is the last element']
+      console.log(arr[0]) 
   }
-  else {
-    tag_id.innerHTML = '';
-  }
-  ;
-  // var li = document.createElement("li");
-  // var myNodelist = document.getElementsByTagName("LI");
-  //   for (i = 0; i < myNodelist.length; i++) 
-  //   if (retrievedDataArray && retrievedDataArray.length > 0){
-      
-  //   // var array = JSON.parse(retrievedDataArray);
-  //   console.log("PARSED RETRIEVED DATA ARRAY = " , retrievedDataArray)
-  //   console.log("RENDERING LOCAL STORAGE!"); //
-  //   var t = document.createTextNode(retrievedDataArray);
-  //   var li = document.createElement("li"); // good
-  //   var localStorageValue = retrievedDataArray.value;
-  //   li.appendChild(t);
-  //   if (inputValue === '') {
-  //     alert("You must write something!");
-  //   } else {
-  //     document.getElementById("myUL").appendChild(li);
-  //     let myObj = {
-  //       task: document.getElementById("myInput").value,
-  //       prioritylevel: 999
-  //     }
-  //     toDos.push(myObj);
-
-  //     }
-    
+    else {
+      tag_id.innerHTML = '';
     }
-
-
-// // Create a new list item when clicking on the "Add" button
-// function newElement() {
-//   var li = document.createElement("li");
-//   var inputValue = document.getElementById("myInput").value;
-//   var t = document.createTextNode(inputValue);
-//   var li = document.createElement("li");
-//   var inputValue = document.getElementById("myInput").value;
-//     li.appendChild(t);
-//     if (inputValue === '') {
-//       alert("You must write something!");
-//     } else {
-//       document.getElementById("myUL").appendChild(li);
-//       let myObj = {
-//         task: document.getElementById("myInput").value,
-//         prioritylevel: 999
-//       }
-//       toDos.push(myObj);
-
-//       }
-    
-//     }
-
+  ;
+  }
 
 
  
@@ -139,7 +95,7 @@ function renderLocalStorage(){
   }, false);
   
   
-//   // Create a new list item when clicking on the "Add" button
+  ///Create a new list item when clicking on the "Add" button
   function newElement() {
     var li = document.createElement("li");
     var inputValue = document.getElementById("myInput").value;
@@ -149,16 +105,9 @@ function renderLocalStorage(){
       alert("You must write something!");
     } else {
       document.getElementById("myUL").appendChild(li);
-      let myObj = {
-        task: document.getElementById("myInput").value,
-        prioritylevel: 999
-      }
-      toDos.push(myObj);
-      let myObjSerialized = JSON.myObjSerialized;
-      localStorage.setItem("testKey", JSON.stringify(toDos));
     }
     document.getElementById("myInput").value = "";
-
+  
     var span = document.createElement("SPAN");
     var txt = document.createTextNode("\u00D7");
     span.className = "close";
@@ -168,16 +117,16 @@ function renderLocalStorage(){
     for (i = 0; i < close.length; i++) {
       close[i].onclick = function() {
         var div = this.parentElement;
-        window.onload
-
+        div.style.display = "none";
       }
+    }
 
       
-    }
 
     validateToDoFunction();  
 
-    
-  }
+  
+}
+
 
 

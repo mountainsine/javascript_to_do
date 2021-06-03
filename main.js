@@ -1,7 +1,9 @@
 var toDos = [];
 var retrievedDataArray = [];
+var potatoes = 1;
 var tag_id = document.getElementById('nothingMessage');
 var onScreenLocalStorage = document.getElementById('myRenderDiv2');
+var onScreenLocalStorage = document.getElementById('myRenderDiv3');
 
 // RETRIEVES LOCAL STORAGE ITEMS
 var retrievedDataArray = JSON.parse(localStorage.getItem("testKey"));
@@ -11,11 +13,18 @@ window.onload = function() {
     console.log("LOCALSTORAGEDETECTED!")
     console.log('Stored Item Length = ' + retrievedDataArray.length);
     loopMachineWacky();
-
   } else {
     tag_id.innerHTML = '&#x2705 You have no Tasks!';
     console.log("NO LOCAL STORAGE FOUND!");
   };
+};
+
+function aNEWDoYouHaveAnyTasks(Potatoes) {
+  if (potatoes) {
+    myRenderDiv3.innerHTML = 'This is a literal string but generated from JS into the innerHTML via tag ID';
+  } else {
+      console.log('no potatoes');
+  }
 };
 
 //// TO DO 20210525 Create a function or way to loop through the tDos and call to dom 
@@ -156,8 +165,11 @@ function newElement() {
     }
 
     
+
+    
   }
 
+  aNEWDoYouHaveAnyTasks(potatoes);
 
 
 

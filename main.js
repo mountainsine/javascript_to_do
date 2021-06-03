@@ -1,53 +1,65 @@
 var toDos = [];
 var retrievedDataArray = [];
+var tag_id = document.getElementById('nothingMessage');
+var onScreenLocalStorage = document.getElementById('myRenderDiv2');
 
 // RETRIEVES LOCAL STORAGE ITEMS
 var retrievedDataArray = JSON.parse(localStorage.getItem("testKey"));
 
 window.onload = function() {
-  if (retrievedDataArray){
-    console.log(retrievedDataArray[0]);
-    loopMachineWacky();
+  if (retrievedDataArray && retrievedDataArray.length > 0){
     console.log("LOCALSTORAGEDETECTED!")
+    console.log('Stored Item Length = ' + retrievedDataArray.length);
+    loopMachineWacky();
+
   } else {
+    tag_id.innerHTML = '&#x2705 You have no Tasks!';
     console.log("NO LOCAL STORAGE FOUND!");
   };
 };
 
 //// TO DO 20210525 Create a function or way to loop through the tDos and call to dom 
 function loopMachineWacky() {
-  if (retrievedDataArray){
+  if (retrievedDataArray && retrievedDataArray.length > 0){
     console.log("INITIATE WACKINESS!")
     renderLocalStorage(retrievedDataArray);
     //console.log(retrievedData);
-    ///document.getElementById("nothingMessageID").classList.remove;
+    localStorage.getItem("testKey", JSON.stringify(toDos));
+    //onScreenLocalStorage.innerHTML = JSON.stringify(localStorage, null, '\t');
+    onScreenLocalStorage.innerHTML = JSON.parse(localStorage, null, '\t');
+
   } else {
-    console.log("NO LOCAL STORAGE FOUND!");
+    console.log('loopMachineWacky FAILURE!')
+
   };
 }
 
 function renderLocalStorage(){
-  var i;
+  //   var i=0;
+  //   i<localStorage.length; i++) {
+  //     var key = localStorage;
+  //     var item = JSON.parse( localStorage.getItem( key ) );
+  // }
+
   var myNodelist = document.getElementsByTagName("LI");
   for (i = 0; i < myNodelist.length; i++) 
   var array = JSON.parse(retrievedDataArray);
-  console.log("THIS IS THE PARSTED RETRIEVED DATA ARRAY" , retrievedDataArray)
+  console.log("PARSED RETRIEVED DATA ARRAY = " , retrievedDataArray)
   console.log("RENDERING LOCAL STORAGE!"); //
-  console.log(array); //
   var li = document.createElement("li"); // good
   var inputValue = document.getElementById("myInput").value;
 
-  var i;
-  for (i = 0; i < myNodelist.length; i++) {
-    var span = document.createElement("SPAN");
-    var txt = document.createTextNode("\u00D7");
-    span.className = "close";
-    span.appendChild(txt);
-    myNodelist[i].appendChild(span);
-    var li = document.createElement("li");
-    document.getElementById("myUL").appendChild(li);
-      let myObj = array.JSON.parse(retrievedDataArray);
-  }
+  // var i;
+  // for (i = 0; i < myNodelist.length; i++) {
+  //   var span = document.createElement("SPAN");
+  //   var txt = document.createTextNode("\u00D7");
+  //   span.className = "close";
+  //   span.appendChild(txt);
+  //   myNodelist[i].appendChild(span);
+  //   var li = document.createElement("li");
+  //   document.getElementById("myUL").appendChild(li);
+  //     let myObj = array.JSON.parse(retrievedDataArray);
+  // }
 
 }
 
@@ -70,6 +82,7 @@ function newElement() {
       }
       toDos.push(myObj);
     }
+    
   }
 
 
@@ -137,6 +150,7 @@ function newElement() {
     for (i = 0; i < close.length; i++) {
       close[i].onclick = function() {
         var div = this.parentElement;
+        window.onload
 
       }
     }

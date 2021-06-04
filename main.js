@@ -8,6 +8,7 @@ var myObj = [];
 var parsedArrayObject = [JSON.parse(window.localStorage.getItem('testKey'))];
 var newSpotForLocalStorageDataRender = document.getElementById('myULfromLocalStorage');
 var toDoValueVariable = [];
+var stringifiedARRAYforRENDER = [];
 
 
 
@@ -33,35 +34,11 @@ function validateToDoFunction(){
   var retrievedDataArray = JSON.parse(localStorage.getItem("testKey"));
   if (retrievedDataArray && retrievedDataArray.length > 0){
     hideDefaultMessage();
-    renderLocalStorage2();
+    renderThatLocalStorageData();
   } else {
     enableDefaultMessage();
   };
 };
-
-// STEP 3 THIS IS MY 2nd FAILED ATTEPT AT RENDERING LOCAL STORAGE
-function renderLocalStorage2() {
-  var i;
-  for (i = 0; i < myNodelist.length; i++) {
-    var span = document.createElement("SPAN");
-    var txt = document.createTextNode("\u00D7");
-    span.className = "close";
-    //span.appendChild(txt);
-    //myNodelist[i].appendChild(span);
-  }
-
-  var savedToDos = JSON.parse(localStorage.getItem('testKey')); 
-  console.log("length of your savedToDos Array:" + savedToDos.length);
-  console.log(savedToDos[0].task);
-  var li = document.createElement("li");
-  var span = document.createElement("SPAN");
-  span.className = "close";
-  var toDoValueVariable = document.createTextNode(savedToDos[0].task);;
-  var t = document.createTextNode(toDoValueVariable);
-  li.appendChild(t);
-  if (savedToDos.length < 0){
-  }
-}
 
   
 // STEP 4 - Create a "close" button and append it to each list item
@@ -104,7 +81,7 @@ function renderLocalStorage2() {
   }
   
   
-  ///Create a new list item when clicking on the "Add" button
+  ///STEP 7 - CREATE A NEW LIST ITEM VIA UI
   function newElement() {
     var li = document.createElement("li");
     var inputValue = document.getElementById("myInput").value;
@@ -129,9 +106,6 @@ function renderLocalStorage2() {
 
       };
 
-
-
-
     };
 
 
@@ -139,9 +113,6 @@ function renderLocalStorage2() {
 
   };
 
-  for (i = 0; i < close.length; i++) {
-    console.log(toDos);
-  };
 
 
 
@@ -153,13 +124,11 @@ window.onload = function() {
 
 // STEP TWO - RENDER ANY PREXISTING LocalStorage
 function renderThatLocalStorageData(){
-  var newlyRenderedLocalStorageItems = localStorage.getItem("testKey", JSON.stringify(toDos));
-  console.log('STEP TWO - RENDER ANY PREXISTING LocalStorage');
-  var i;
-  for (i = 0; i < myNodelist.length; i++) {
-   console.log(localStorage.getItem("testKey", JSON.stringify(toDos)));
-
-  //noTasksCopyVariable.innerHTML = `test`;
+  var myStringArray = JSON.parse(localStorage.getItem('testKey'));
+  var arrayLength = myStringArray.length;
+  for (var i = 0; i < arrayLength; i++) {
+    console.log(myStringArray[i].task);
+    //Do something
+  }
 }
 
-}

@@ -9,24 +9,7 @@ var parsedArrayObject = [JSON.parse(window.localStorage.getItem('testKey'))];
 var newSpotForLocalStorageDataRender = document.getElementById('myULfromLocalStorage');
 var toDoValueVariable = [];
 var stringifiedARRAYforRENDER = [];
-
-
-
-
-// Create a "close" button and append it to each list item
 var myNodelist = document.getElementsByTagName("LI");
-
-// HIDE THE DEFAULT MESSAGE
-function hideDefaultMessage(){
-  noTasksCopyVariable.hidden;
-  //hideDefaultMessage.style.display = 'none';
-  //document.getElementById(nothingMessageId).style.display = 'none';
-}
-
-// DISPLAY THE NO TASKS MESSAGE
-function enableDefaultMessage(){
-    noTasksCopyVariable.innerHTML = '&#x2705 You have no Tasks!';
-}
 
 // STEP ONE - VALIDATE IF WE HAVE LOCAL STORAGE
 function validateToDoFunction(){
@@ -40,7 +23,18 @@ function validateToDoFunction(){
   };
 };
 
-  
+// STEP 2 - DISPLAY THE NO TASKS MESSAGE
+function enableDefaultMessage(){
+  noTasksCopyVariable.innerHTML = '&#x2705 You have no Tasks!';
+}
+
+// STEP 3 - HIDE THE DEFAULT MESSAGE
+function hideDefaultMessage(){
+  //noTasksCopyVariable.hidden;
+  //hideDefaultMessage.style.display = 'none';
+  //document.getElementById(nothingMessageId).style.display = 'none';
+}
+
 // STEP 4 - Create a "close" button and append it to each list item
   var myNodelist = document.getElementsByTagName("LI");
   var i;
@@ -108,9 +102,6 @@ function validateToDoFunction(){
 
     };
 
-
-
-
   };
 
 
@@ -119,16 +110,29 @@ function validateToDoFunction(){
 /// FINAL STEP - Checks on Window Load if the are local storage to Do Items
 window.onload = function() {
   validateToDoFunction();
-  renderThatLocalStorageData();
 };
 
 // STEP TWO - RENDER ANY PREXISTING LocalStorage
 function renderThatLocalStorageData(){
+
   var myStringArray = JSON.parse(localStorage.getItem('testKey'));
+
+
   var arrayLength = myStringArray.length;
+  document.createTextNode("myStringArray[i].task");
   for (var i = 0; i < arrayLength; i++) {
-    console.log(myStringArray[i].task);
-    //Do something
+    var h = document.createElement("H1");
+    var t = document.createTextNode(myStringArray[i].task);
+    h.appendChild(t);
+      document.body.appendChild(h);
+      document.createElement("li");
+      var t = document.createTextNode(myStringArray[i].task);
+      var txt = document.createTextNode("\u00D7")
+      console.log(myStringArray[i].task);
+    
+    var li = document.createElement("li");
+    var li = this.parentElement;
+    //li.appendChild(t);
+
   }
 }
-

@@ -3,13 +3,14 @@ var toDos = [];
 var retrievedDataArray = [];
 var tag_id = document.getElementById('nothingMessage');
 var myObj = [];
-var parsedArrayObject = [JSON.parse(window.localStorage.getItem('testKey'))];
+//var parsedArrayObject = [JSON.parse(window.localStorage.getItem('testKey'))];
 var myNodelist = document.getElementsByTagName("li");
 
 // RETRIEVES LOCAL STORAGE ITEMS
 var retrievedDataArray = JSON.parse(localStorage.getItem("testKey"));
 
 function validateToDoFunction(){
+  count++;
   if (retrievedDataArray && retrievedDataArray.length > 0){
     //console.log("LOCALSTORAGEDETECTED!")
     console.log('Stored Item Length = ' + retrievedDataArray.length);
@@ -82,11 +83,6 @@ function renderLocalStorage(){
   }
 }
   
-  validateToDoFunction(); 
-
- 
-
-
 // Create a "close" button and append it to each list item
 
   var i;
@@ -151,4 +147,4 @@ function renderLocalStorage(){
       };
     };
   };
-   validateToDoFunction();  
+   ///validateToDoFunction();  

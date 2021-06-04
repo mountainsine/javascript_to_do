@@ -15,7 +15,7 @@ function validateToDoFunction(){
     //console.log("LOCALSTORAGEDETECTED!")
     console.log('Stored Item Length = ' + retrievedDataArray.length);
 
-    loopMachineWacky();
+    renderLocalStorage2();
   } else {
     //tag_id.innerHTML = '&#x2705 You have no Tasks!';
     //console.log("NO LOCAL STORAGE FOUND!");
@@ -27,17 +27,11 @@ window.onload = function() {
 };
 
 //// TO DO 20210525 Create a function or way to loop through the tDos and call to dom 
-function loopMachineWacky() {
+function renderLocalStorage2() {
   if (retrievedDataArray && retrievedDataArray.length > 0){
-    //console.log("INITIATE WACKINESS!")
-    renderLocalStorage();
-   // JSON.parse(retrievedDataArray) // Does not return anything
-    //localStorage.getItem("testKey", JSON.stringify(toDos));
-    //console.log(toDos);
-    //myRenderDiv2.innerHTML = JSON.stringify(localStorage, myObj, '\t');
 
   } else {
-    console.log('loopMachineWacky FAILURE!');
+    console.log('renderLocalStorage2 FAILURE!');
     tag_id.innerHTML = '&#x2705 You have no Tasks!';
     
 
@@ -45,11 +39,7 @@ function loopMachineWacky() {
 };
 
 
-var para = document.createElement("p");
-var node = document.createTextNode("THIS IS ONLY STATIC BUT WILL DISPLAY");
-para.appendChild(node);
-var element = document.getElementById("div1");
-element.appendChild(para);
+
 
 
 // ANOTHER attempt at loop through the tDos and call to dom 

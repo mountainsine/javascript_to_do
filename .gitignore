@@ -1,5 +1,8 @@
 #Mac System File
 .DS_Store
+*.DS_Store
+.ds_store
+*.ds_store
 
 # working local playground directories
 /test/*
@@ -59,3 +62,6 @@ modules.order
 Module.symvers
 Mkfile.old
 dkms.conf
+
+# VISUAL STUDIO METADAT
+.vscode

@@ -1,7 +1,7 @@
 
 var toDos = [];
 var retrievedDataArray = [];
-var tag_id = document.getElementById('nothingMessage');
+var tag_id = document.getElementById('myRenderDiv3');
 var myObj = [];
 //var parsedArrayObject = [JSON.parse(window.localStorage.getItem('testKey'))];
 var myNodelist = [];
@@ -22,19 +22,20 @@ function validateToDoFunction(){
   };
 };
 
+/// Checks on Window Load if the are local storage to Do Items
 window.onload = function() {
   validateToDoFunction();
 };
 
-//// TO DO 20210525 Create a function or way to loop through the tDos and call to dom 
+
 function renderLocalStorage2() {
   if (retrievedDataArray && retrievedDataArray.length > 0){
-
+    var currentToDoString = JSON.stringify(retrievedDataArray[0]);
+    tag_id.innerHTML = currentToDoString;
   } else {
     console.log('renderLocalStorage2 FAILURE!');
     tag_id.innerHTML = '&#x2705 You have no Tasks!';
     
-
   };
 };
 
@@ -45,8 +46,6 @@ function renderLocalStorage2() {
 // ANOTHER attempt at loop through the tDos and call to dom 
 function renderLocalStorage(){
   if (retrievedDataArray && retrievedDataArray.length > 0){
-    var currentToDoString = JSON.stringify(retrievedDataArray[0]);
-    console.log(currentToDoString);
     //document.getElementById("myUL").appendChild("test");
     var t = document.createElement("li");
     var li = document.createElement("li");

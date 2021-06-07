@@ -1,7 +1,6 @@
 // INITIALIZE VARIABLES
 var toDos = [];
 var retrievedDataArray = [];
-var tag_id = document.getElementById('myRenderDiv3');
 var noTasksCopyVariable = document.getElementById('nothingMessageId');
 var the = document.getElementById('myUL');
 var myObj = [];
@@ -107,32 +106,25 @@ function hideDefaultMessage(){
 
 
 
-/// FINAL STEP - Checks on Window Load if the are local storage to Do Items
+/// STEP 8 - Checks on Window Load if the are local storage to Do Items
 window.onload = function() {
   validateToDoFunction();
+  
 };
 
 // STEP TWO - RENDER ANY PREXISTING LocalStorage
 function renderThatLocalStorageData(){
-
   var myStringArray = JSON.parse(localStorage.getItem('testKey'));
-
-
   var arrayLength = myStringArray.length;
   document.createTextNode("myStringArray[i].task");
   for (var i = 0; i < arrayLength; i++) {
-    var h = document.createElement("H1");
-    var t = document.createTextNode(myStringArray[i].task);
-    h.appendChild(t);
-      document.body.appendChild(h);
-      document.createElement("li");
-      var t = document.createTextNode(myStringArray[i].task);
-      var txt = document.createTextNode("\u00D7")
-      console.log(myStringArray[i].task);
-    
     var li = document.createElement("li");
-    var li = this.parentElement;
-    //li.appendChild(t);
-
+    var t = document.createTextNode(myStringArray[i].task);
+    li.appendChild(t);
+      document.body.appendChild(li);
+      document.createElement("li");
+      console.log(myStringArray[i].task);
+      var li = document.createElement("li");
+      var li = this.parentElement;
   }
 }

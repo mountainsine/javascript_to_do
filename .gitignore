@@ -1,8 +1,13 @@
-#Mac System File
+# APPLE METADATA
 .DS_Store
 *.DS_Store
 .ds_store
 *.ds_store
+
+# MICROSOFT METADATA
+.vscode
+*.vscode*
+
 
 # working local playground directories
 /test/*
@@ -64,4 +69,4 @@ Mkfile.old
 dkms.conf
 
 # VISUAL STUDIO METADAT
-.vscode
+

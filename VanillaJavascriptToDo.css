@@ -2,6 +2,14 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+.flexExperiment{
+  display: flex;
+  flex-flow: row wrap;
+  flex-direction: column;
+  align-items: stretch;
+  margin: 10px 0;
+}
+
 .noTasksPlaceholderCopy{
   float: center;
   padding: 50px;
@@ -92,11 +100,12 @@ ul li.checked::before {
 }
 
 /* Style the input */
-input {
-  margin: 0;
+.input {
+  margin: 10px 0;
   border: none;
   border-radius: 0;
   width: 75%;
+  min-height: 15px;
   padding: 10px;
   float: left;
   font-size: 16px;
@@ -106,24 +115,21 @@ input {
 
 /* Style the "Add" button */
 .addBtn {
+  margin: 10px 0;
   box-sizing: border-box;
-  padding: 10px;
+  padding: 8px; 
   width: 15%;
-  height: 15%;
-  background: #d9d9d9;
-  color: #555;
-  float: right;
+  min-height: 15px;
+  background: #97e8eb;
+  color: rgb(0, 0, 0);
   text-align: center;
-  font-size: 16px;
+  font-size: 20px;
   cursor: pointer;
   transition: 0.3s;
   border-radius: 0;
   
 }
 
-.addBtn:hover {
-  background-color: #bbb;
-}
 
 /* STYLES the general SUB NAV With the PROJECT selector*/
 .myProjectSelector {
@@ -150,6 +156,7 @@ input {
 }
 
 .centeredListText{
+  max-width: 800px;
   cursor: pointer;
   position: relative;
   padding: 12px 8px 12px 40px;

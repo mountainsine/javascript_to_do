@@ -4,7 +4,6 @@ body {
 
 .noTasksPlaceholderCopy{
   float: center;
-  padding: 50px;
   text-align: center;
   font-size: 30px;
 }
@@ -149,7 +148,6 @@ ul li.checked::before {
 }
 
 .centeredListText{
-  max-width: 800px;
   cursor: pointer;
   position: relative;
   padding: 12px 8px 12px 40px;

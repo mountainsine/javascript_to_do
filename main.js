@@ -29,32 +29,32 @@ function enableDefaultMessage(){
 
 // STEP 3 - HIDE THE DEFAULT MESSAGE
 function hideDefaultMessage(){
-  //noTasksCopyVariable.hidden;
-  //hideDefaultMessage.style.display = 'none';
-  //document.getElementById(nothingMessageId).style.display = 'none';
+  // noTasksCopyVariable.hidden;
+  // hideDefaultMessage.style.display = 'none';
+  document.getElementById('nothingMessageId').style.display = 'none';
 }
 
-// STEP 4 - Create a "close" button and append it to each list item
-var myNodelist = document.getElementsByTagName("LI");
-var i;
-for (i = 0; i < myNodelist.length; i++) {
-  var span = document.createElement("SPAN");
-  var txt = document.createTextNode("\u00D7");
-  span.className = "close";
-  span.appendChild(txt);
-  myNodelist[i].appendChild(span);
-}
+// // STEP 4 - Create a "close" button and append it to each list item
+// var myNodelist = document.getElementsByTagName("LI");
+// var i;
+// for (i = 0; i < myNodelist.length; i++) {
+//   var span = document.createElement("SPAN");
+//   var txt = document.createTextNode("\u00D7");
+//   span.className = "close";
+//   span.appendChild(txt);
+//   myNodelist[i].appendChild(span);
+// }
 
 
   // STEP 5 - Click on a close button to hide the current list item
-  var close = document.getElementsByClassName("close");
-  var i;
-  for (i = 0; i < close.length; i++) {
-    close[i].onclick = function() {
-      var div = this.parentElement;
-      div.style.display = "none";
-    }
-  }
+  // var close = document.getElementsByClassName("close");
+  // var i;
+  // for (i = 0; i < close.length; i++) {
+  //   close[i].onclick = function() {
+  //     var div = this.parentElement;
+  //     div.style.display = "none";
+  //   }
+  // }
 
   // STEP 6 - Add a "checked" symbol when clicking on a list item
   var list = document.querySelector('#myUL');
@@ -75,32 +75,17 @@ for (i = 0; i < myNodelist.length; i++) {
   }
   
   
-  ///STEP 7 - CREATE A NEW LIST ITEM VIA UI
+  ///STEP 7 - CREATE A NEW LIST ITEM VIA UI INPUT FUNCTION
   function newElement() {
-    var li = document.createElement("li");
     var inputValue = document.getElementById("myInput").value;
-    var t = document.createTextNode(inputValue);
-    li.appendChild(t);
     if (inputValue === '') {
       alert("You must write something!");
     } else { 
-      document.getElementById("myUL").appendChild(li);
-      writeToLocalStorageFromInput();      
+      
+      writeToLocalStorageFromInput();     
+      appendListItem(inputValue); 
     }
-    
-    document.getElementById("myInput").value = "";
-    var span = document.createElement("SPAN");
-    var txt = document.createTextNode("\u00D7");
-    span.className = "close";
-    span.appendChild(txt);
-    li.appendChild(span);
-    for (i = 0; i < close.length; i++) {
-    close[i].onclick = function() {
-    var div = this.parentElement;
-
-      };
-
-    };
+    hideDefaultMessage();
 
   };
 
@@ -116,14 +101,23 @@ function renderThatLocalStorageData(){
   var arrayLength = myStringArray.length;
   document.createTextNode("myStringArray[i].task");
   for (var i = 0; i < arrayLength; i++) {
-    var li = document.createElement("li");
-    var t = document.createTextNode(myStringArray[i].task);
-    li.classList.add("centeredListText");
-    li.appendChild(t);
-      document.body.appendChild(li);
-      document.createElement("li");
-      console.log(myStringArray[i].task);
-      var li = document.createElement("li");
-      var li = this.parentElement;
+    appendListItem(myStringArray[i].task);
   }
+
+}
+
+
+/// APPEND THE LIST
+function appendListItem(inputValue) {
+    var li = document.createElement("li");
+    var t = document.createTextNode(inputValue);
+    li.appendChild(t);
+  console.log("appendListItemEXECUTES");
+    var span = document.createElement("SPAN");
+    li.appendChild(span);
+    var txt = document.createTextNode("\u00D7");
+    span.appendChild(txt);
+    span.className = "close";
+  document.getElementById("myUL").appendChild(li);
+
 }

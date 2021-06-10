@@ -164,7 +164,13 @@ ul li.checked::before {
 }
 
 
-
+/* A simple Class to hide an Element */
 .hidden{
   display:none;
+}
+
+.centeredListText2{
+  text-align: center;
+  padding: 50px;
+  font-size: 30px;
 }

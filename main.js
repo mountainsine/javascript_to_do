@@ -10,9 +10,10 @@ var toDoValueVariable = [];
 var stringifiedARRAYforRENDER = [];
 var myNodelist = document.getElementsByTagName("LI");
 
+
 // STEP ONE - VALIDATE IF WE HAVE LOCAL STORAGE
 function validateToDoFunction(){
-  console.log('STEP ONE - VALIDATE IF WE HAVE LOCAL STORAGE');
+  console.log('01 Retrieve and Parse local storage');
   var retrievedDataArray = JSON.parse(localStorage.getItem("testKey"));
   if (retrievedDataArray && retrievedDataArray.length > 0){
     hideDefaultMessage();
@@ -22,35 +23,27 @@ function validateToDoFunction(){
   };
 };
 
+
 // STEP 2 - DISPLAY THE NO TASKS MESSAGE
 function enableDefaultMessage(){
+  console.log('02 -  SET The NO TASKS INNER HTML STRING');
   noTasksCopyVariable.innerHTML = '&#x2705 You have no Tasks!';
 }
 
 // STEP 3 - HIDE THE DEFAULT MESSAGE
 function hideDefaultMessage(){
+  console.log('03 -  Change the display style of the no Tasks element to none');
   // noTasksCopyVariable.hidden;
   // hideDefaultMessage.style.display = 'none';
   document.getElementById('nothingMessageId').style.display = 'none';
 }
 
-// // STEP 4 - Create a "close" button and append it to each list item
-// var myNodelist = document.getElementsByTagName("LI");
-// var i;
-// for (i = 0; i < myNodelist.length; i++) {
-//   var span = document.createElement("SPAN");
-//   var txt = document.createTextNode("\u00D7");
-//   span.className = "close";
-//   span.appendChild(txt);
-//   myNodelist[i].appendChild(span);
-// }
-
-
-  // STEP 5 - Click on a close button to hide the current list item
+  // // STEP 5 - Click on a close button to hide the current list item
   // var close = document.getElementsByClassName("close");
   // var i;
   // for (i = 0; i < close.length; i++) {
   //   close[i].onclick = function() {
+  //     console.log("Close Button Clicked!");
   //     var div = this.parentElement;
   //     div.style.display = "none";
   //   }
@@ -64,15 +57,7 @@ function hideDefaultMessage(){
     }
   }, false);
 
-  // UTILITY FUNCTION - WRITE TO LOCAL STORAGE
-  function writeToLocalStorageFromInput(){
-      let myObj = {
-        task: document.getElementById("myInput").value,
-        prioritylevel: 999
-      }
-      toDos.push(myObj);
-      localStorage.setItem("testKey", JSON.stringify(toDos));
-  }
+
   
   
   ///STEP 7 - CREATE A NEW LIST ITEM VIA UI INPUT FUNCTION
@@ -81,13 +66,13 @@ function hideDefaultMessage(){
     if (inputValue === '') {
       alert("You must write something!");
     } else { 
-      
-      writeToLocalStorageFromInput();     
-      appendListItem(inputValue); 
+      appendListItem(inputValue);
     }
     hideDefaultMessage();
 
   };
+
+
 
 /// STEP 8 - Checks on Window Load if the are local storage to Do Items
 window.onload = function() {
@@ -95,7 +80,7 @@ window.onload = function() {
   
 };
 
-// STEP TWO - RENDER ANY PREXISTING LocalStorage
+// STEP 2 - RENDER ANY PREXISTING LocalStorage
 function renderThatLocalStorageData(){
   var myStringArray = JSON.parse(localStorage.getItem('testKey'));
   var arrayLength = myStringArray.length;
@@ -107,17 +92,39 @@ function renderThatLocalStorageData(){
 }
 
 
-/// APPEND THE LIST
+/// STEP 10 - APPEND THE LIST
 function appendListItem(inputValue) {
-    var li = document.createElement("li");
-    var t = document.createTextNode(inputValue);
-    li.appendChild(t);
+  var li = document.createElement("li");
+  var t = document.createTextNode(inputValue);
+  li.appendChild(t);
   console.log("appendListItemEXECUTES");
-    var span = document.createElement("SPAN");
-    li.appendChild(span);
-    var txt = document.createTextNode("\u00D7");
-    span.appendChild(txt);
-    span.className = "close";
+  var span = document.createElement("SPAN");
+  li.appendChild(span);
+  var txt = document.createTextNode("\u00D7");
+  span.appendChild(txt);
+  span.className = "close";
   document.getElementById("myUL").appendChild(li);
+  writeToLocalStorageFromInput(inputValue); 
 
 }
+
+// STEP 11 - UTILITY FUNCTION - WRITE TO LOCAL STORAGE FROM INPU
+function writeToLocalStorageFromInput(inputValue){
+  let myObj = {
+    task: inputValue,
+    prioritylevel: 999
+  }
+  toDos.push(myObj);
+  localStorage.setItem("testKey", JSON.stringify(toDos));
+}
+
+
+  // UTILITY FUNCTION - Delete from LOCAL STORAGE via click
+  function deleteLFromLocalStorageFromClick(inputValue){
+    let myObj = {
+      task: inputValue,
+      prioritylevel: 999
+    }
+    toDos.push(myObj);
+    localStorage.removeItem("testKey", JSON.stringify(toDos));
+  }

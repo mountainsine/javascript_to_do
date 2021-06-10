@@ -104,9 +104,6 @@ for (i = 0; i < myNodelist.length; i++) {
 
   };
 
-
-
-
 /// STEP 8 - Checks on Window Load if the are local storage to Do Items
 window.onload = function() {
   validateToDoFunction();

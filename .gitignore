@@ -14,6 +14,8 @@
 /Test/*
 /Playground/*
 /playground/*
+/source/*
+/SOURCE/*
 
 # Prerequisites
 *.d

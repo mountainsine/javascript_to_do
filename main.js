@@ -2,7 +2,6 @@
 var toDos = [];
 var retrievedDataArray = [];
 var noTasksCopyVariable = document.getElementById('nothingMessageId');
-var the = document.getElementById('myUL');
 var myObj = [];
 var parsedArrayObject = [JSON.parse(window.localStorage.getItem('testKey'))];
 var newSpotForLocalStorageDataRender = document.getElementById('myULfromLocalStorage');
@@ -33,27 +32,33 @@ function enableDefaultMessage(){
 // STEP 3 - HIDE THE DEFAULT MESSAGE
 function hideDefaultMessage(){
   console.log('03 -  Change the display style of the no Tasks element to none');
-  // noTasksCopyVariable.hidden;
-  // hideDefaultMessage.style.display = 'none';
   document.getElementById('nothingMessageId').style.display = 'none';
 }
 
-  // // STEP 5 - Click on a close button to hide the current list item
-  // var close = document.getElementsByClassName("close");
-  // var i;
-  // for (i = 0; i < close.length; i++) {
-  //   close[i].onclick = function() {
-  //     console.log("Close Button Clicked!");
-  //     var div = this.parentElement;
-  //     div.style.display = "none";
-  //   }
-  // }
+ 
+  // STEP 5 - delete from LIST when clicking X
+  var list = document.querySelector('#myUL');
+  var close = document.getElementsByClassName("close");
+  list.addEventListener('click', function(ev) {
+    if (ev.target.className === 'close') {
+      console.log("DELETED!");
+    }
+  }, false);
+  var i;
+  for (i = 0; i < close.length; i++) {
+    console.log("closeButtonClicked")
+
+  }
+
+
+   
 
   // STEP 6 - Add a "checked" symbol when clicking on a list item
   var list = document.querySelector('#myUL');
   list.addEventListener('click', function(ev) {
     if (ev.target.tagName === 'LI') {
       ev.target.classList.toggle('checked');
+      console.log("checked");
     }
   }, false);
 
@@ -108,7 +113,7 @@ function appendListItem(inputValue) {
 
 }
 
-// STEP 11 - UTILITY FUNCTION - WRITE TO LOCAL STORAGE FROM INPU
+// STEP 11 - UTILITY FUNCTION - WRITE TO LOCAL STORAGE FROM INPUT
 function writeToLocalStorageFromInput(inputValue){
   let myObj = {
     task: inputValue,
@@ -119,12 +124,11 @@ function writeToLocalStorageFromInput(inputValue){
 }
 
 
-  // UTILITY FUNCTION - Delete from LOCAL STORAGE via click
-  function deleteLFromLocalStorageFromClick(inputValue){
-    let myObj = {
-      task: inputValue,
-      prioritylevel: 999
-    }
-    toDos.push(myObj);
-    localStorage.removeItem("testKey", JSON.stringify(toDos));
-  }
+  // // UTILITY FUNCTION - Delete from LOCAL STORAGE via click
+//   function deleteFromLocalStorageFromClick(inputValue){
+//     console.log("DELETINGLOCALSTORAGEITEM")
+//     localStorage.removeItem("testKey", JSON.stringify(currentDeleteItem));
+//   }
+// }
+
+

@@ -1,26 +1,13 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN">
 <html>
+
 <head>
   <meta charset=“UTF-8”>
-  <title>Vanilla Javascript To Do</title>
-  <div ultimateTopNav class="navbar">
+  <title>Vanilla Javascript Project Two</title>
+  <div topnav class="navbar">
     <a href="index.html">HOME</a>
     <a href="PROJECT2.html">PROJECT2</a>
     <a href="PROJECT3.html">PROJECT3</a>
-  </div>
-
-  <!-- You cannot have spaces in html property-->
-
-    <div selectProjectSelector class="myProjectSelector">
-      <select>
-        <option selected disabled hidden>Choose here</option>
-        <option value="1">ProjectOne</option>
-        <option value="2">ProjectTwo</option>
-        <option value="3">ProjectThree</option>
-        <option value="4">ProjectFour</option>
-        <option value="5">ProjectFive</option>
-    </select>
-    </div>
   </div>
 
   <!-- All Styles in this css file-->
@@ -29,28 +16,84 @@
 </head>
 
 <body>
-      <div id="myDIV" class="header">
+<div>
+  <div class="buttonMenu">
+    <br>
+    <br>
+    <br>
 
-        <div id="BIGHEADERTEXTID" class="bigHeaderText">
-          THE WHAT AM I GOING TO DO CLUB
-        </div>
-        <input type="text" id="myInput" class="input" placeholder="What do you need to do?">
-          <button onclick="newElement()" class="addBtn"> 
-          Add</button>
-        </div>
+    <button class="btn success">Success</button>
+    <button class="btn info">Info</button>
+    <button class="btn warning">Warning</button>
+    <button class="btn danger">Danger</button>
+</div>
+<div class="main">
+    <h1>This is going to be a 2nd project that is referencing a seperate Javascript file!</h1>            
 
-        <ul id="myUL">
-          <!--   -->
-        </ul>
-      
-        <div id="nothingMessageId" class="centeredListText2">
-      </div>
-    
+    <h2>Table 0</h2>
 
+    <p>This is my first table that will always be static. </p>
+
+    <div>
+      <table id="contrasttable">
+        <tr>
+          <th>Name</th>
+          <th>Link</th>
+          <th>Archetype</th>
+        </tr>
+        <tr>
+          <td>Information</td>
+          <td>LINK</td>
+          <td>NOTES</td>
+        </tr>
+        <tr>
+          <td>Information</td>
+          <td>LINK</td>
+          <td>NOTES</td>
+        </tr>
+        <tr>
+          <td>Information</td>
+          <td>LINK</td>
+          <td>NOTES</td>
+        </tr>
+      </table>
+    </div>
+    <h2>Table 1
+    </h2>
+
+    <p>This is going to be a dynamic table some day. </p>
+
+    <div>
+      <table id="contrasttable">
+        <tr>
+          <th>Name</th>
+          <th>Link</th>
+          <th>Archetype</th>
+        </tr>
+        <tr>
+          <td>Information</td>
+          <td>LINK</td>
+          <td>NOTES</td>
+        </tr>
+        <tr>
+          <td>Information</td>
+          <td>LINK</td>
+          <td>NOTES</td>
+        </tr>
+        <tr>
+          <td>Information</td>
+          <td>LINK</td>
+          <td>NOTES</td>
+        </tr>
+      </table>
+    </div>
+
+  </div>
+</div>
 </body>
 
 
-  <script src="main.js"></script>
+  <script src="project2.js"></script>
 
 
     

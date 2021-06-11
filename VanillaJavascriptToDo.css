@@ -4,6 +4,7 @@ body {
 
   /* The navigation bar */
   .navbar {
+    margin-left: -8px;
     overflow: hidden;
     background-color: #333;
     position: fixed; /* Set the navbar to fixed position */
@@ -21,6 +22,7 @@ body {
     text-decoration: none;
   }
 
+  /*Placeholder text that user sees initially*/
 .noTasksPlaceholderCopy{
   float: center;
   text-align: center;
@@ -35,6 +37,8 @@ ul {
 
 /* Style the list items */
 ul li {
+  margin-left: -8px;
+  margin-right: -8px;
   cursor: pointer;
   position: relative;
   padding: 12px 8px 12px 40px;
@@ -96,6 +100,8 @@ ul li.checked::before {
 
 /* Style the header */
 .header {
+  margin-left: -8px;
+  margin-right: -8px;
   background-color: #abdf8d;
   padding: 30px 40px;
   font-family: Helvetica, Arial, sans-serif;
@@ -122,6 +128,8 @@ ul li.checked::before {
 
 
 
+
+
 /* Style the "Add" button */
 .addBtn {
   margin: 10px 0;
@@ -139,6 +147,30 @@ ul li.checked::before {
   border-radius: 0;
   
 }
+
+.btn {
+  border: none; /* Remove borders */
+  color: white; /* Add a text color */
+  padding: 14px 28px; /* Add some padding */
+  cursor: pointer; /* Add a pointer cursor on mouse-over */
+}
+
+
+/* unique sub navigation bar */
+.success {background-color: #04AA6D;} /* Green */
+.success:hover {background-color: #46a049;}
+
+.info {background-color: #2196F3;} /* Blue */
+.info:hover {background: #0b7dda;}
+
+.warning {background-color: #ff9800;} /* Orange */
+.warning:hover {background: #e68a00;}
+
+.danger {background-color: #f44336;} /* Red */
+.danger:hover {background: #da190b;}
+}
+
+
 
 
 /* STYLES the general SUB NAV With the PROJECT selector*/
@@ -199,5 +231,28 @@ ul li.checked::before {
   font-size: 35px;
   color: black;
 
+}
+
+#contrasttable {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#contrasttable td, #contrasttableitem th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#contrasttable tr:nth-child(even){background-color: #f2f2f2;}
+
+#contrasttable tr:hover {background-color: #ddd;}
+
+#contrasttable th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #333;
+  color: white;
 }
 

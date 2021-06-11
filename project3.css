@@ -99,7 +99,7 @@ body {
 }
 
 .main{
-  max-width: 800px;
-
+  width: 800px;
+  margin: auto;
 }
 

@@ -258,5 +258,5 @@ ul li.checked::before {
 
 .main{
   width: 800px;
-  margin: auto;
+  float:left
 }

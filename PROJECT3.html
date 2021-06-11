@@ -17,7 +17,15 @@
   <br>
   <br>
   <div class='viewportCENTER'>
-    <h1>This is going to be a THIRD project that is referencing a seperate Javascript file!</h1>   
+    <h1>This is going to be a THIRD project that is referencing a seperate Javascript file!</h1>
+    <br>
+    <br>
+    <select id="myselect" onchange="displaytable(this.value)">
+      <option value="">Choose an option:</option>
+      <option value="FILES">JSONFILES</option>
+    </select>
+    <br>
+    <br>
     <table id="contrasttable">
       <tr>
         <th>Name</th>
@@ -40,7 +48,15 @@
         <td>NOTES</td>
       </tr>
     </table>
+    <br>
+    <Br>
+    <Br>
+      <div id="artistList"></div>
+
   </div>
+
+  <!-- The output appears here -->
+<div id="Artists"></div>
            
 
     </div>

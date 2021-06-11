@@ -126,10 +126,6 @@ ul li.checked::before {
   font-size: 16px;
 }
 
-
-
-
-
 /* Style the "Add" button */
 .addBtn {
   margin: 10px 0;
@@ -220,12 +216,14 @@ ul li.checked::before {
   display:none;
 }
 
+/* Styles BIG centered text that is not a header for stuff like viewports */
 .centeredListText2{
   text-align: center;
   padding: 50px;
   font-size: 30px;
 }
 
+/* Styles basic BIG HEADER text that IS header */
 .bigHeaderText{
   text-align: left;
   font-size: 35px;
@@ -233,6 +231,7 @@ ul li.checked::before {
 
 }
 
+/* A very CONTRASTY black white reusable Table Style */
 #contrasttable {
   font-family: Arial, Helvetica, sans-serif;
   border-collapse: collapse;
@@ -249,6 +248,7 @@ ul li.checked::before {
 #contrasttable tr:hover {background-color: #ddd;}
 
 #contrasttable th {
+  padding-left: 8px;
   padding-top: 12px;
   padding-bottom: 12px;
   text-align: left;

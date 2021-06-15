@@ -22,7 +22,6 @@ function validateToDoFunction(){
   };
 };
 
-
 // STEP 2 - DISPLAY THE NO TASKS MESSAGE
 function enableDefaultMessage(){
   console.log('02 -  SET The NO TASKS INNER HTML STRING');
@@ -50,9 +49,6 @@ function hideDefaultMessage(){
 
   }
 
-
-   
-
   // STEP 6 - Add a "checked" symbol when clicking on a list item
   var list = document.querySelector('#myUL');
   list.addEventListener('click', function(ev) {
@@ -62,8 +58,6 @@ function hideDefaultMessage(){
     }
   }, false);
 
-
-  
   
   ///STEP 7 - CREATE A NEW LIST ITEM VIA UI INPUT FUNCTION
   function newElement() {
@@ -74,15 +68,12 @@ function hideDefaultMessage(){
       appendListItem(inputValue);
     }
     hideDefaultMessage();
-
   };
 
 
-
 /// STEP 8 - Checks on Window Load if the are local storage to Do Items
-window.onload = function() {
+window.onload = function(Artists) {
   validateToDoFunction();
-  
 };
 
 // STEP 2 - RENDER ANY PREXISTING LocalStorage

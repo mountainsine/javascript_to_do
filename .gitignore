@@ -8,6 +8,9 @@
 .vscode
 *.vscode*
 
+# Image Directories
+/img/*
+/IMG/*
 
 # working local playground directories
 /test/*

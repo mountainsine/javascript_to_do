@@ -41,6 +41,7 @@ function hideDefaultMessage(){
   list.addEventListener('click', function(ev) {
     if (ev.target.className === 'close') {
       console.log("DELETED!");
+      deleteFromLocalStorageFromClick('#myUL');
     }
   }, false);
   var i;
@@ -68,7 +69,7 @@ function hideDefaultMessage(){
       appendListItem(inputValue);
     }
     hideDefaultMessage();
-  };
+  }
 
 
 /// STEP 8 - Checks on Window Load if the are local storage to Do Items
@@ -84,7 +85,6 @@ function renderThatLocalStorageData(){
   for (var i = 0; i < arrayLength; i++) {
     appendListItem(myStringArray[i].task);
   }
-
 }
 
 
@@ -115,11 +115,12 @@ function writeToLocalStorageFromInput(inputValue){
 }
 
 
-  // // UTILITY FUNCTION - Delete from LOCAL STORAGE via click
-//   function deleteFromLocalStorageFromClick(inputValue){
-//     console.log("DELETINGLOCALSTORAGEITEM")
-//     localStorage.removeItem("testKey", JSON.stringify(currentDeleteItem));
-//   }
-// }
+  // UTILITY FUNCTION - Delete from LOCAL STORAGE via click
+  function deleteFromLocalStorageFromClick(inputValue){
+    console.log("DELETINGLOCALSTORAGEITEM")
+    localStorage.removeItem("testKey", JSON.stringify("currentDeleteItem"));
+    location.reload();
+  }
+
 
 

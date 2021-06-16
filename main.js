@@ -40,8 +40,8 @@ function hideDefaultMessage(){
   var close = document.getElementsByClassName("close");
   list.addEventListener('click', function(ev) {
     if (ev.target.className === 'close') {
-      console.log("DELETED!");
-      deleteFromLocalStorageFromClick('#myUL');
+      console.log("DELETING!" + ev);
+      deleteFromLocalStorageFromClick('li');
     }
   }, false);
   var i;
@@ -67,6 +67,8 @@ function hideDefaultMessage(){
       alert("You must write something!");
     } else { 
       appendListItem(inputValue);
+      inputValue.value = "";
+      location.reload();
     }
     hideDefaultMessage();
   }
@@ -116,10 +118,11 @@ function writeToLocalStorageFromInput(inputValue){
 
 
   // UTILITY FUNCTION - Delete from LOCAL STORAGE via click
-  function deleteFromLocalStorageFromClick(inputValue){
+  function deleteFromLocalStorageFromClick(currentDeleteItem){
     console.log("DELETINGLOCALSTORAGEITEM")
-    localStorage.removeItem("testKey", JSON.stringify("currentDeleteItem"));
-    location.reload();
+    // debugger;
+    localStorage.removeItem("testKey", currentDeleteItem);
+    // location.reload();
   }
 
 

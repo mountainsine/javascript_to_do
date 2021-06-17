@@ -82,7 +82,7 @@ ul li.checked::before {
   left: 16px;
   transform: rotate(45deg);
   height: 15px;
-  width: 7px;
+  min-width: 50px;
 }
 
 /* Style the close button */

@@ -122,7 +122,7 @@ function writeToLocalStorageFromInput(inputValue){
     console.log("DELETINGLOCALSTORAGEITEM")
     // debugger;
     localStorage.removeItem("testKey", currentDeleteItem);
-    // location.reload();
+    location.reload();
   }
 
 

@@ -65,10 +65,11 @@ function hideDefaultMessage(){
     var inputValue = document.getElementById("myInput").value;
     if (inputValue === '') {
       alert("You must write something!");
-    } else { 
-      appendListItem(inputValue);
+    } else {
+      let index = toDos.length;
+      appendListItem(inputValue, index);
       inputValue.value = "";
-      location.reload();
+      
     }
     hideDefaultMessage();
   }
@@ -85,14 +86,18 @@ function renderThatLocalStorageData(){
   var arrayLength = myStringArray.length;
   document.createTextNode("myStringArray[i].task");
   for (var i = 0; i < arrayLength; i++) {
-    appendListItem(myStringArray[i].task);
+    appendListItem(myStringArray[i].task, i);
+  
   }
 }
 
 
 /// STEP 10 - APPEND THE LIST
-function appendListItem(inputValue) {
+function appendListItem(inputValue, index) {
+  /// Create List item in Memory
   var li = document.createElement("li");
+  
+  li.setAttribute("id", index.toString());
   var t = document.createTextNode(inputValue);
   li.appendChild(t);
   console.log("appendListItemEXECUTES");
@@ -117,13 +122,16 @@ function writeToLocalStorageFromInput(inputValue){
 }
 
 
+
   // UTILITY FUNCTION - Delete from LOCAL STORAGE via click
   function deleteFromLocalStorageFromClick(currentDeleteItem){
     console.log("DELETINGLOCALSTORAGEITEM")
     // debugger;
-    localStorage.removeItem("testKey", currentDeleteItem);
+    localStorage.removeItem("testKey", currentDeleteItem); /// Deletes Currently Clicked "X" item
     location.reload();
   }
+
+
 
 
 

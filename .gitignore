@@ -72,6 +72,3 @@ modules.order
 Module.symvers
 Mkfile.old
 dkms.conf
-
-# VISUAL STUDIO METADAT
-
